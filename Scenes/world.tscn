@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dk0v2jtpcmg7e"]
+[gd_scene load_steps=9 format=3 uid="uid://dk0v2jtpcmg7e"]
 
 [ext_resource type="Texture2D" uid="uid://pqoj8y7e7c0g" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="1_go701"]
 [ext_resource type="Texture2D" uid="uid://b5vkbo3c2ual3" path="res://brackeys_platformer_assets/sprites/platforms.png" id="2_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://b5s68m8xdtyje" path="res://Scenes/player.tscn" id="3_8j60k"]
 [ext_resource type="Script" uid="uid://buhjxiolr51fa" path="res://Scenes/player.gd" id="4_fo5ed"]
+[ext_resource type="PackedScene" uid="uid://bbortbx4ex700" path="res://Scenes/kill_zone.tscn" id="5_fo5ed"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j60k"]
 texture = ExtResource("1_go701")
@@ -214,3 +215,6 @@ layer_0/tile_data = PackedInt32Array(458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 5
 [node name="Player" parent="." instance=ExtResource("3_8j60k")]
 position = Vector2(23, 122)
 script = ExtResource("4_fo5ed")
+
+[node name="Kill zone" parent="." instance=ExtResource("5_fo5ed")]
+position = Vector2(252, 556)
