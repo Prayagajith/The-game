@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3d63l1a47uax"]
+[gd_scene load_steps=9 format=3 uid="uid://caxmiugaefbet"]
 
-[ext_resource type="Script" uid="uid://b0qxryc1rkpj5" path="res://character_body_2d.gd" id="1_1f0kj"]
+[ext_resource type="Script" uid="uid://g3cl8wo7xyg3" path="res://Scenes/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://csb0h2ucflcqy" path="res://brackeys_platformer_assets/sprites/slime_green.png" id="2_afpow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1f0kj"]
@@ -35,22 +35,33 @@ animations = [{
 "texture": SubResource("AtlasTexture_0830c")
 }],
 "loop": true,
-"name": &"default",
+"name": &"enemyani",
 "speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghaa6"]
-size = Vector2(28, 24)
+size = Vector2(42, 36)
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="enemy" type="Area2D"]
 script = ExtResource("1_1f0kj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(144, 182)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_287tu")
-frame_progress = 0.54225
+animation = &"enemyani"
+frame_progress = 0.194182
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(144, 194)
+position = Vector2(144, 200)
 shape = SubResource("RectangleShape2D_ghaa6")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(144, 195)
+target_position = Vector2(30, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(144, 195)
+target_position = Vector2(-30, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
