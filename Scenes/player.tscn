@@ -304,7 +304,7 @@ position = Vector2(67, 39)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
 animation = &"jump"
-frame_progress = 0.803095
+frame_progress = 0.712151
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(64, 48)
@@ -312,3 +312,9 @@ shape = SubResource("RectangleShape2D_v0iea")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(66, 48)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -475.0
+offset_top = -253.0
+offset_right = -220.0
+offset_bottom = -194.0

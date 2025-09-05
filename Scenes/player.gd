@@ -1,10 +1,13 @@
 extends CharacterBody2D
+@onready var label1: Label = $Label
 
-const SPEED = 350.0
-const JUMP_VELOCITY = -800.0
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -500.0
 const FALL_VELOCITY = 300
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+var health = 100
 func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
@@ -31,5 +34,7 @@ func _physics_process(delta: float) -> void:
 		d
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	label1.text = str(health)
 	move_and_slide()
+
+	
