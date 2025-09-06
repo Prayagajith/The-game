@@ -43,6 +43,8 @@ animations = [{
 size = Vector2(42, 36)
 
 [node name="enemy" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_1f0kj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -59,9 +61,11 @@ shape = SubResource("RectangleShape2D_ghaa6")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(144, 195)
 target_position = Vector2(28, 0)
+collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2(144, 195)
 target_position = Vector2(-28, 0)
+collision_mask = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
