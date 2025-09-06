@@ -5,15 +5,15 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
-const FALL_VELOCITY = 300
+const FALL_VELOCITY = 250
 var health : int = 100
 
 func _physics_process(delta: float) -> void:
-	
+	abs
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		animated_sprite_2d.play("jump")
+		
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -32,9 +32,10 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, 30)
+		velocity.x = move_toward(velocity.x, 0, 40)
 	label1.text = str(health)
-	
+	if not is_on_floor():
+		animated_sprite_2d.play("jump")
 	move_and_slide()
 
 func damage(x):
