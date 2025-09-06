@@ -9,7 +9,6 @@ const FALL_VELOCITY = 250
 var health : int = 100
 
 func _physics_process(delta: float) -> void:
-	abs
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -32,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, 40)
+		velocity.x = move_toward(velocity.x, 0, 60)
 	label1.text = str(health)
 	if not is_on_floor():
 		animated_sprite_2d.play("jump")
@@ -43,4 +42,4 @@ func damage(x):
 	
 func respawn():
 	if health <= 0:
-		get_tree().change_scene_to_file("res://Scenes/player.tscn")
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

@@ -9,7 +9,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if player.health == 100:
 		label.text = "health already full"
 		label.visible = true
-		timer.start()
 			
 	if body == player and player.health != 100:
 		if player.health < 50:
@@ -23,5 +22,10 @@ func _process(delta: float) -> void:
 	animated_sprite_2d.play("default")
 
 
+
+
+func _on_body_exited(body: Node2D) -> void:
+	timer.start()
+	
 func _on_timer_timeout() -> void:
 	label.visible = false
