@@ -37,10 +37,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		animated_sprite_2d.play("jump")
 	move_and_slide()
-
+	respawn()
 func damage(x):
 	health-=x
 	
 func respawn():
-	if health >= 0:
-		get_tree().reload_current_scene()
+	if health <= 0:
+		get_tree().change_scene_to_file("res://Scenes/player.tscn")
