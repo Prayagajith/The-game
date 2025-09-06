@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://dw27trvxpek75"]
+
+[ext_resource type="Texture2D" uid="uid://buenxdu2awhud" path="res://brackeys_platformer_assets/extra/image-removebg-preview.png" id="1_gvws8"]
+[ext_resource type="Script" uid="uid://cleqtr1irygvr" path="res://Scenes/health_pickup.gd" id="1_lj2jr"]
+[ext_resource type="FontFile" uid="uid://c5hwu00lin2el" path="res://DeterminationSansWebRegular-369X.ttf" id="3_18ac6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj2jr"]
+atlas = ExtResource("1_gvws8")
+region = Rect2(0, 306, 144, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18ac6"]
+atlas = ExtResource("1_gvws8")
+region = Rect2(152, 306, 144, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1ck8"]
+atlas = ExtResource("1_gvws8")
+region = Rect2(304, 306, 144, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wbxn"]
+atlas = ExtResource("1_gvws8")
+region = Rect2(456, 306, 144, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imvwe"]
+atlas = ExtResource("1_gvws8")
+region = Rect2(608, 306, 144, 153)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grj36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj2jr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18ac6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1ck8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wbxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imvwe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvws8"]
+radius = 35.0
+height = 104.0
+
+[node name="health pickup" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_lj2jr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(117, -14)
+sprite_frames = SubResource("SpriteFrames_grj36")
+frame_progress = 0.834287
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(114, -21)
+shape = SubResource("CapsuleShape2D_gvws8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -133.333
+offset_top = -290.0
+offset_right = 366.667
+offset_bottom = -115.0
+theme_override_fonts/font = ExtResource("3_18ac6")
+theme_override_font_sizes/font_size = 64
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

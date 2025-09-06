@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b5s68m8xdtyje"]
+[gd_scene load_steps=40 format=3 uid="uid://b5s68m8xdtyje"]
 
 [ext_resource type="Texture2D" uid="uid://be5td2sjh8pdd" path="res://brackeys_platformer_assets/sprites/knight.png" id="1_v0iea"]
 
@@ -294,27 +294,23 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
-size = Vector2(42, 54)
-
 [node name="Player" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(67, 39)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"jump"
-frame_progress = 0.712151
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 48)
-shape = SubResource("RectangleShape2D_v0iea")
+animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(66, 48)
 
 [node name="Label" type="Label" parent="."]
-offset_left = -475.0
-offset_top = -253.0
-offset_right = -220.0
-offset_bottom = -194.0
+offset_left = -494.0
+offset_top = -260.0
+offset_right = -463.0
+offset_bottom = -233.0
+text = "	"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(82, 30, 52, 30, 52, 54, 49, 54, 49, 71, 85, 72, 85, 60, 82, 60, 82, 57, 85, 57, 85, 36, 82, 36)

@@ -2,9 +2,9 @@ extends Area2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var ray_cast_2d_2: RayCast2D = $RayCast2D2
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var player: CharacterBody2D = $"." as CharacterBody2D
+@onready var player: CharacterBody2D = $"../Player"
 
-@onready var node: Node = $Node
+
 
 var s=100
 var d=1
@@ -24,12 +24,8 @@ func _process(delta: float) -> void:
 		d=1
 		animated_sprite_2d.flip_h = false
 	position.x += delta * d * s
-	
-
-
-
 
 
 func _on_body_entered(body: Node2D) -> void:
-	player.health -= 20
-	print(player.health)
+	if body == player:
+		player.damage(20)
