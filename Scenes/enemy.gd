@@ -42,10 +42,10 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	timer.start()
 	timer_2.start()
-	if player.velocity.x == 0 and player.velocity.y == 0:
-		player.velocity.x = -1 * 50
-	else:
-		player.velocity.x = -1 * 200
+	#if player.velocity.x == 0 and player.velocity.y == 0:
+		#player.velocity.x = -1 * 50
+	#else:
+	player.velocity.x = -1 * 200
 	player.animated_sprite_2d.play("damage")
 	player.velocity.y = -300
 	player.SPEED *= -1
@@ -64,10 +64,10 @@ func _on_area_2d_3_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	timer.start()
 	timer_2.start()
-	if player.velocity.x == 0 and player.velocity.y == 0:
-		player.velocity.x = 1 * 50
-	elif player.velocity.x > 0 or player.velocity.x < 0:
-		player.velocity.x = 1 * 200
+	#if player.velocity.x == 0 and player.velocity.y == 0:
+		#player.velocity.x = 1 * 50
+	#elif player.velocity.x > 0 or player.velocity.x < 0:
+	player.velocity.x = 1 * 200
 	player.animated_sprite_2d.play("damage")
 	player.velocity.y = -300
 	player.SPEED *= -1
@@ -78,10 +78,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	player.SPEED=300
-	dam = false
+	dam = true
 
 func _on_timer_2_timeout() -> void:
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
 	topcol.set_deferred("disabled", false)
-	dam = false
+	

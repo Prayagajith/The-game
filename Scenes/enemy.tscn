@@ -43,7 +43,7 @@ animations = [{
 size = Vector2(46, 36)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1f0kj"]
-a = Vector2(3, -3)
+a = Vector2(0, -3)
 b = Vector2(0, 33)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_afpow"]
@@ -51,7 +51,7 @@ a = Vector2(18, 10)
 b = Vector2(-2, 10)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_287tu"]
-a = Vector2(-3, -11)
+a = Vector2(0, -11)
 b = Vector2(0, 24)
 
 [node name="enemy" type="Area2D"]

@@ -16,11 +16,13 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		Input.start_joy_vibration(0, 1, 0, 0.1)
 	elif Input.is_action_just_released("jump") and jump == true:
 		velocity.y = FALL_VELOCITY
 		jump = false
 	if is_on_floor():
 		jump = true
+		
 	var direction := Input.get_axis("left", "right")
 	
 	if direction > 0:
