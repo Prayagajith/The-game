@@ -6,6 +6,7 @@ var SPEED = 300.0
 const JUMP_VELOCITY = -700.0
 const FALL_VELOCITY = 250
 var health : int = 100
+var jump = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -15,14 +16,18 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	elif Input.is_action_just_released("jump"):
+	elif Input.is_action_just_released("jump") and jump == true:
 		velocity.y = FALL_VELOCITY
-
+		jump = false
+	if is_on_floor():
+		jump = true
 	var direction := Input.get_axis("left", "right")
 	
 	if direction > 0:
+		animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = false
 	elif direction < 0:
+		animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = true
 	elif direction == 0 and is_on_floor():
 		animated_sprite_2d.play("idle")

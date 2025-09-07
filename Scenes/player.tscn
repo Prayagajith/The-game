@@ -165,9 +165,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8erm5")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -300,7 +300,9 @@ animations = [{
 position = Vector2(67, 39)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"run"
+animation = &"damage"
+frame = 3
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(66, 48)
