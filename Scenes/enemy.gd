@@ -42,9 +42,11 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	timer.start()
 	timer_2.start()
 	if player.velocity == Vector2(0,0):
-		player.velocity = Vector2(-500, -200)
+		player.velocity = Vector2(-1000, -200)
+		print("not moving")
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
-		player.velocity = Vector2(-200, -200)
+		player.velocity = Vector2(-1000, -200)
+		print("moving")
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
@@ -56,10 +58,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	timer.start()
 	timer_2.start()
 	if player.velocity == Vector2(0,0):
-		player.velocity = Vector2(500, -200)
+		player.velocity = Vector2(1000, -200)
 		print("not moving")
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
-		player.velocity = Vector2(200, -200)
+		player.velocity = Vector2(1000, -200)
+		print("moving")
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
