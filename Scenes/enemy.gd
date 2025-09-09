@@ -73,9 +73,16 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	player.move = true
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 55830db5831e96edcc8170ab0f19df9e1f5d7f44
 
 func _on_timer_2_timeout() -> void:
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
 	dam = true
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 55830db5831e96edcc8170ab0f19df9e1f5d7f44
