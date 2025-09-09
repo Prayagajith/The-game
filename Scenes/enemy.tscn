@@ -40,14 +40,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghaa6"]
-size = Vector2(46, 40)
+size = Vector2(46, 39)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1f0kj"]
-a = Vector2(0, -3)
+a = Vector2(0, 2)
 b = Vector2(0, 33)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_287tu"]
-a = Vector2(0, -11)
+a = Vector2(0, -6)
 b = Vector2(0, 24)
 
 [node name="enemy" type="Area2D"]
@@ -61,7 +61,7 @@ animation = &"enemyani"
 frame_progress = 0.194182
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(144, 198)
+position = Vector2(144, 198.5)
 shape = SubResource("RectangleShape2D_ghaa6")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
