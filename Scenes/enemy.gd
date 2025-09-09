@@ -41,6 +41,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	dam = false
 	timer.start()
 	timer_2.start()
 	if player.velocity == Vector2(0,0): 
@@ -53,7 +54,6 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	player.move = false
 	leftcol.set_deferred("disabled", true)
 	rightcol.set_deferred("disabled", true)
-	dam = false
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -73,9 +73,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	player.move = true
-	dam = true
+	
 
 func _on_timer_2_timeout() -> void:
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
-	
+	dam = true
