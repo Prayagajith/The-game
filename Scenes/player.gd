@@ -10,6 +10,7 @@ var jump = true
 var move = true
 
 
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -26,6 +27,10 @@ func _physics_process(delta: float) -> void:
 		jump = true
 		
 	var direction := Input.get_axis("left", "right")
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 7b9935741ab596a6fd3cf4c46b9de5dfc30a09fe
 	
 	if direction > 0:
 		animated_sprite_2d.play("run")

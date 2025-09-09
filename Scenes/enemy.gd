@@ -10,7 +10,7 @@ extends Area2D
 var leftk
 var rightk
 var dam = true
-
+var enemyhealth = 100
 var s=100
 var d=1
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +34,8 @@ func _process(delta: float) -> void:
 	position.x += delta * d * s
 	leftk = Vector2(-1900, -200)
 	rightk = Vector2(1900, -200)
+	if enemyhealth <= 0:
+		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player and dam:
@@ -42,17 +44,24 @@ func _on_body_entered(body: Node2D) -> void:
 		
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
-	dam = false
 	timer.start()
 	timer_2.start()
 	if player.velocity == Vector2(0,0): 
 		player.velocity = leftk
+<<<<<<< HEAD
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = leftk
+=======
+		
+	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
+		player.velocity = leftk
+		
+>>>>>>> 7b9935741ab596a6fd3cf4c46b9de5dfc30a09fe
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
 	rightcol.set_deferred("disabled", true)
+	dam = false
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -60,8 +69,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	timer_2.start()
 	if player.velocity == Vector2(0,0):
 		player.velocity = rightk
+<<<<<<< HEAD
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = rightk
+=======
+		
+	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
+		player.velocity = rightk
+		
+>>>>>>> 7b9935741ab596a6fd3cf4c46b9de5dfc30a09fe
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
@@ -70,9 +86,16 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	player.move = true
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 7b9935741ab596a6fd3cf4c46b9de5dfc30a09fe
 
 func _on_timer_2_timeout() -> void:
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
 	dam = true
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 7b9935741ab596a6fd3cf4c46b9de5dfc30a09fe
