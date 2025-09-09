@@ -38,13 +38,13 @@ func _on_body_entered(body: Node2D) -> void:
 		player.damage(20)
 		
 
-func _on_area_2d_2_body_entered(body: Node2D, delta: float) -> void:
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	timer.start()
 	timer_2.start()
 	if player.velocity == Vector2(0,0):
-		player.velocity = Vector2(-50, -200) * delta
+		player.velocity = Vector2(-500, -200)
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
-		player.velocity = Vector2(-200, -200) * delta
+		player.velocity = Vector2(-200, -200)
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
@@ -52,13 +52,14 @@ func _on_area_2d_2_body_entered(body: Node2D, delta: float) -> void:
 	dam = true
 
 
-func _on_area_2d_body_entered(body: Node2D, delta: float) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	timer.start()
 	timer_2.start()
 	if player.velocity == Vector2(0,0):
-		player.velocity = Vector2(50, -200) * delta
+		player.velocity = Vector2(500, -200)
+		print("not moving")
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
-		player.velocity = Vector2(200, -200) * delta
+		player.velocity = Vector2(200, -200)
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
