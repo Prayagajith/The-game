@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		jump = true
 		
 	var direction := Input.get_axis("left", "right")
+	print(Input.get_axis("left", "right"))
 	
 	if direction > 0:
 		animated_sprite_2d.play("run")
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	respawn()
 func damage(x):
 	health-=x
-	
+	animated_sprite_2d.play("damage")
 func respawn():
 	if health <= 0:
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
