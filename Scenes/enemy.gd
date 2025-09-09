@@ -37,7 +37,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player and dam:
-		player.damage(20)
+		player.health-=20
+		animated_sprite_2d.play("damage")
 		
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
@@ -46,10 +47,8 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	timer_2.start()
 	if player.velocity == Vector2(0,0): 
 		player.velocity = leftk
-		print("not moving")
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = leftk
-		print("moving")
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
@@ -61,10 +60,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	timer_2.start()
 	if player.velocity == Vector2(0,0):
 		player.velocity = rightk
-		print("not moving")
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = rightk
-		print("moving")
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
@@ -73,16 +70,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	player.move = true
-<<<<<<< HEAD
 	
-=======
->>>>>>> 55830db5831e96edcc8170ab0f19df9e1f5d7f44
 
 func _on_timer_2_timeout() -> void:
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
 	dam = true
-<<<<<<< HEAD
-=======
-	
->>>>>>> 55830db5831e96edcc8170ab0f19df9e1f5d7f44
