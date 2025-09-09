@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		jump = true
 		
 	var direction := Input.get_axis("left", "right")
-	print(Input.get_axis("left", "right"))
+	
 	
 	if direction > 0:
 		animated_sprite_2d.play("run")
