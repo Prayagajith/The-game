@@ -10,7 +10,7 @@ extends Area2D
 var leftk
 var rightk
 var dam = true
-
+var enemyhealth = 100
 var s=100
 var d=1
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +34,8 @@ func _process(delta: float) -> void:
 	position.x += delta * d * s
 	leftk = Vector2(-1900, -200)
 	rightk = Vector2(1900, -200)
+	if enemyhealth <= 0:
+		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player and dam:
@@ -45,10 +47,10 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	timer_2.start()
 	if player.velocity == Vector2(0,0): 
 		player.velocity = leftk
-		print("not moving")
+		
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = leftk
-		print("moving")
+		
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
@@ -61,10 +63,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	timer_2.start()
 	if player.velocity == Vector2(0,0):
 		player.velocity = rightk
-		print("not moving")
+		
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = rightk
-		print("moving")
+		
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
