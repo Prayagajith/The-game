@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 				attack.visileft(true)
 			elif dir == "right":
 				attack.visiright(true)
-		else:
+		elif visi == false:
 			attack.visiright(false)
 			attack.visileft(false)
 	move_and_slide()

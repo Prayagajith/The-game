@@ -1,7 +1,7 @@
 extends Area2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var enemy: Area2D = $"."
-@onready var player: CharacterBody2D = $".."
+@onready var player: CharacterBody2D = $Player
 @onready var anim_1: AnimatedSprite2D = $anim1
 @onready var anim_2: AnimatedSprite2D = $anim2
 
@@ -21,9 +21,8 @@ func _on_body_entered(body: Node2D) -> void:
 	
 func animleft():
 	anim_2.play("left")
-	
 func animright():
-	anim_1.play("right")
+	anim_1.play("left")
 func visiright(t: bool):
 	anim_1.visible = t
 func visileft(t: bool):
@@ -31,8 +30,8 @@ func visileft(t: bool):
 
 
 func _on_anim_1_animation_finished() -> void:
-	player.visi = false
+	visiright(false)
 
 
 func _on_anim_2_animation_finished() -> void:
-	player.visi = false
+	visileft(false)
