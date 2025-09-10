@@ -11,8 +11,7 @@ var move = true
 var visi = false
 var dir = "right"
 @onready var attack: Area2D = $attack
-@onready var anim_1: AnimatedSprite2D = $anim1
-@onready var anim_2: AnimatedSprite2D = $anim2
+
 
 
 func _physics_process(delta: float) -> void:

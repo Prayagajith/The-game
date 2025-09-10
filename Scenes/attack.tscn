@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbyhquso1mda5"]
+[gd_scene load_steps=13 format=3 uid="uid://bbyhquso1mda5"]
 
 [ext_resource type="Script" uid="uid://qb8jgb5mdbwg" path="res://Scenes/attack.gd" id="1_ht1lw"]
 [ext_resource type="Texture2D" uid="uid://bd5oss37xv2kh" path="res://Screenshot_2025-09-10_013149-removebg-preview.png" id="1_ij4ji"]
@@ -19,6 +19,22 @@ region = Rect2(336, 0, 158, 166)
 atlas = ExtResource("1_ij4ji")
 region = Rect2(494, 0, 158, 166)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i371"]
+atlas = ExtResource("1_ij4ji")
+region = Rect2(495, 0, 159, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boclk"]
+atlas = ExtResource("1_ij4ji")
+region = Rect2(336, 0, 159, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw11w"]
+atlas = ExtResource("1_ij4ji")
+region = Rect2(177, 0, 159, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymsaa"]
+atlas = ExtResource("1_ij4ji")
+region = Rect2(18, 0, 159, 166)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v80ua"]
 animations = [{
 "frames": [{
@@ -33,10 +49,22 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8yxis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i371")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boclk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw11w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymsaa")
 }],
 "loop": false,
 "name": &"left",
-"speed": 11.0
+"speed": 22.0
 }]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6i371"]
@@ -52,6 +80,8 @@ position = Vector2(285.5, 187)
 scale = Vector2(0.677215, 0.819277)
 sprite_frames = SubResource("SpriteFrames_v80ua")
 animation = &"left"
+frame = 6
+frame_progress = 1.0
 
 [node name="anim2" type="AnimatedSprite2D" parent="."]
 visible = false

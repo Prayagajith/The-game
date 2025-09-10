@@ -10,7 +10,7 @@ extends Area2D
 var leftk
 var rightk
 var dam = true
-var enemyhealth = 100
+@export var enemyhealth = 100
 var s=100
 var d=1
 # Called when the node enters the scene tree for the first time.
@@ -85,3 +85,6 @@ func _on_timer_2_timeout() -> void:
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
 	dam = true
+
+func damageenemy():
+	enemyhealth-=100
