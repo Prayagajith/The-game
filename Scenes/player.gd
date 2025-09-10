@@ -11,7 +11,8 @@ var move = true
 var visi = false
 var dir = "right"
 @onready var attack: Area2D = $attack
-
+@onready var anim_1: AnimatedSprite2D = $anim1
+@onready var anim_2: AnimatedSprite2D = $anim2
 
 
 func _physics_process(delta: float) -> void:
@@ -51,9 +52,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		visi = true
 		if dir == "left":
-			attack.anim2.play("left")
+			attack.animleft()
 		elif dir == "right":
-			attack.anim1.play("right")
+			attack.animright()
+		if visi == true:
+			if dir == "left":
+				attack.visileft(true)
+			elif dir == "right":
+				attack.visiright(true)
+		else:
+			attack.visiright(false)
+			attack.visileft(false)
 	move_and_slide()
 	respawn()
 	
