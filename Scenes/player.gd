@@ -8,6 +8,9 @@ const FALL_VELOCITY = 250
 var health : int = 100
 var jump = true
 var move = true
+var visi = false
+var dir = "right"
+@onready var attack: Area2D = $attack
 
 
 
@@ -27,17 +30,15 @@ func _physics_process(delta: float) -> void:
 		jump = true
 		
 	var direction := Input.get_axis("left", "right")
-<<<<<<< HEAD
-=======
-	
->>>>>>> 7b9935741ab596a6fd3cf4c46b9de5dfc30a09fe
 	
 	if direction > 0:
 		animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = false
+		dir = "right"
 	elif direction < 0:
 		animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = true
+		dir = "left"
 	elif direction == 0 and is_on_floor():
 		animated_sprite_2d.play("idle")
 	if direction and move == true:
@@ -47,6 +48,12 @@ func _physics_process(delta: float) -> void:
 	label1.text = str(health)
 	if not is_on_floor():
 		animated_sprite_2d.play("jump")
+	if Input.is_action_just_pressed("attack"):
+		visi = true
+		if dir == "left":
+			attack.anim2.play("left")
+		elif dir == "right":
+			attack.anim1.play("right")
 	move_and_slide()
 	respawn()
 	

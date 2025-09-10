@@ -35,7 +35,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_8yxis")
 }],
 "loop": false,
-"name": &"default",
+"name": &"left",
 "speed": 11.0
 }]
 
@@ -46,15 +46,25 @@ b = Vector2(30, -7)
 [node name="attack" type="Area2D"]
 script = ExtResource("1_ht1lw")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="anim1" type="AnimatedSprite2D" parent="."]
 position = Vector2(285.5, 187)
 scale = Vector2(0.677215, 0.819277)
 sprite_frames = SubResource("SpriteFrames_v80ua")
-frame = 3
-frame_progress = 1.0
+animation = &"left"
+
+[node name="anim2" type="AnimatedSprite2D" parent="."]
+position = Vector2(186, 187)
+scale = Vector2(0.677215, 0.819277)
+sprite_frames = SubResource("SpriteFrames_v80ua")
+animation = &"left"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(293, 188)
+shape = SubResource("SegmentShape2D_6i371")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(199, 190)
 shape = SubResource("SegmentShape2D_6i371")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

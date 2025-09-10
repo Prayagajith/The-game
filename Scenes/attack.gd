@@ -19,5 +19,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == Area2D:
-		enemy.enemyhealth-=10
+		enemy.enemyhealth-=100
 	
