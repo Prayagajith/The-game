@@ -1,4 +1,6 @@
 extends CharacterBody2D
+@onready var kill_zone: Area2D = $"Kill zone"
+
 
 @onready var label1: Label = $Label
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -62,14 +64,14 @@ func _physics_process(delta: float) -> void:
 			attack.animleft()
 		elif dir == "right":
 			attack.visiright(true)
-			attack.animright()			
+			attack.animright()
 			
 			
 	move_and_slide()
 	respawn()
 	
 	
-func respawn():		#death screen
+func respawn():
 	if health <= 0:
 		print("workink")
 		health = 100
