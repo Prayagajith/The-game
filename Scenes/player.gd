@@ -51,17 +51,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		visi = true
 		if dir == "left":
+			attack.visileft(true)
 			attack.animleft()
 		elif dir == "right":
+			attack.visiright(true)
 			attack.animright()
-		if visi == true:
-			if dir == "left":
-				attack.visileft(true)
-			elif dir == "right":
-				attack.visiright(true)
-		elif visi == false:
+		if visi == false:
 			attack.visiright(false)
 			attack.visileft(false)
+			
+				
 	move_and_slide()
 	respawn()
 	
