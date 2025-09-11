@@ -255,10 +255,6 @@ position = Vector2(1250, -27)
 [node name="health pickup" parent="." instance=ExtResource("7_o06y3")]
 position = Vector2(328, 133)
 
-[node name="Checkpoint" parent="." instance=ExtResource("9_0fj1v")]
-position = Vector2(1107, -361)
-scale = Vector2(3, 3)
-
 [node name="Kill zone" parent="." instance=ExtResource("5_fo5ed")]
 position = Vector2(252, 556)
 
@@ -266,3 +262,9 @@ position = Vector2(252, 556)
 visibility_layer = 2
 position = Vector2(23, 122)
 script = ExtResource("4_fo5ed")
+
+[node name="checkpoint" type="Node" parent="."]
+
+[node name="Checkpoint" parent="." instance=ExtResource("9_0fj1v")]
+position = Vector2(1130, -322)
+scale = Vector2(3, 3)
