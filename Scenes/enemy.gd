@@ -7,10 +7,12 @@ extends Area2D
 @onready var timer_2: Timer = $Timer2
 @onready var leftcol: CollisionShape2D = $Area2D2/leftcol
 @onready var rightcol: CollisionShape2D = $Area2D/rightcol
+@onready var attack: Area2D = $attack
+
 var leftk
 var rightk
 var dam = true
-var enemyhealth = 100
+@export var enemyhealth = 100
 var s=100
 var d=1
 # Called when the node enters the scene tree for the first time.
@@ -51,9 +53,6 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:	 # player knockback on da
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = leftk
 		
-	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
-		player.velocity = leftk
-		
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)
@@ -78,9 +77,18 @@ func _on_area_2d_body_entered(body: Node2D) -> void:	 # player knockback on dama
 func _on_timer_timeout() -> void:
 	player.move = true
 func _on_timer_2_timeout() -> void:
+	dam = true
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
-	dam = true
 
 func damageenemy():		# enemy damage on attack (WIP)
 	enemyhealth-=100
+
+
+func _on_attack_body_entered(body: Node2D) -> void:
+	if body == Area2D:
+		enemyhealth-=100
+		print("tftyf")
+
+func _on_body_exited(body: Node2D) -> void:
+	pass

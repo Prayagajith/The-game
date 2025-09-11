@@ -228,6 +228,10 @@ position = Vector2(252, 556)
 visibility_layer = 2
 position = Vector2(114, 164)
 
+[node name="enemy2" parent="." instance=ExtResource("6_5ukr8")]
+visibility_layer = 2
+position = Vector2(1250, -27)
+
 [node name="health pickup" parent="." instance=ExtResource("7_o06y3")]
 position = Vector2(328, 133)
 

@@ -8,8 +8,8 @@ const FALL_VELOCITY = 250
 var health : int = 100
 var jump = true
 var move = true
-var visi = false
 var dir = "right"
+var attcol = false
 @onready var attack: Area2D = $attack
 
 
@@ -57,15 +57,14 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor(): #jump animation
 		animated_sprite_2d.play("jump")
 	if Input.is_action_just_pressed("attack"): #attack input
-		visi = true
+		attack.attacol(true)
 		if dir == "left":
 			attack.visileft(true)            
 			attack.animleft()
 		elif dir == "right":
 			attack.visiright(true)
 			attack.animright()			
-			
-			
+
 	move_and_slide()
 	respawn()
 	

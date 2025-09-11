@@ -1,9 +1,11 @@
 extends Area2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var collision_shape_2d_2: CollisionShape2D = $CollisionShape2D2
 @onready var anim_1: AnimatedSprite2D = $anim1
 @onready var anim_2: AnimatedSprite2D = $anim2
-@onready var enemy: Area2D = $"."
 
+
+var attcol: = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,12 +13,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-
+	if attcol == false:
+		collision_shape_2d.set_deferred("disabled",true)
+		collision_shape_2d_2.set_deferred("disabled",true)
+	elif attcol == true:
+		collision_shape_2d.set_deferred("disabled",false)
+		collision_shape_2d_2.set_deferred("disabled",false)
 func _on_body_entered(body: Node2D) -> void: # damage enemy on attack
-	enemy.damageenemy()
-	print("damaged")
+	if body == Area2D:
+		print("damage")
 	
 func animleft():					# attack visibility animation
 	anim_2.play("left")
@@ -30,7 +35,11 @@ func visileft(t: bool):
 
 func _on_anim_1_animation_finished() -> void: # visibility toggle right
 	visiright(false)
-
+	attacol(false)
 
 func _on_anim_2_animation_finished() -> void: # visibility toggle left
 	visileft(false)
+	attacol(false)
+
+func attacol(t: bool):
+	attcol = t
