@@ -10,6 +10,7 @@ var jump = true
 var move = true
 var visi = false
 var dir = "right"
+var last_checkpoint = Vector2()
 @onready var attack: Area2D = $attack
 
 
@@ -70,4 +71,6 @@ func _physics_process(delta: float) -> void:
 	
 func respawn():		#death screen
 	if health <= 0:
-		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+		print("workink")
+		health = 100
+		global_position=last_checkpoint
