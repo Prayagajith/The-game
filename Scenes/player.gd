@@ -15,23 +15,27 @@ var dir = "right"
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
+
+	if not is_on_floor():						# gravity
 		velocity += get_gravity() * delta
 		
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor(): # Handle jump
 		velocity.y = JUMP_VELOCITY
 		Input.start_joy_vibration(0, 1, 0, 0.1)
 	elif Input.is_action_just_released("jump") and jump == true:
 		velocity.y = FALL_VELOCITY
 		jump = false
-	if is_on_floor():
-		jump = true
 		
-	var direction := Input.get_axis("left", "right")
+		
+	if is_on_floor():   	#jump switch
+		jump = true
 	
-	if direction > 0:
+		
+	var direction := Input.get_axis("left", "right") #getting input
+	
+	
+	if direction > 0:							#player animation
 		animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = false
 		dir = "right"
@@ -41,29 +45,31 @@ func _physics_process(delta: float) -> void:
 		dir = "left"
 	elif direction == 0 and is_on_floor():
 		animated_sprite_2d.play("idle")
+		
+		
 	if direction and move == true:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED)  #player movement
 	label1.text = str(health)
-	if not is_on_floor():
+	
+	
+	if not is_on_floor(): #jump animation
 		animated_sprite_2d.play("jump")
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack"): #attack input
 		visi = true
 		if dir == "left":
-			attack.visileft(true)
+			attack.visileft(true)            
 			attack.animleft()
 		elif dir == "right":
 			attack.visiright(true)
-			attack.animright()
-		if visi == false:
-			attack.visiright(false)
-			attack.visileft(false)
+			attack.animright()			
 			
-				
+			
 	move_and_slide()
 	respawn()
 	
-func respawn():
+	
+func respawn():		#death screen
 	if health <= 0:
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

@@ -10,7 +10,7 @@ extends Area2D
 var leftk
 var rightk
 var dam = true
-@export var enemyhealth = 100
+var enemyhealth = 100
 var s=100
 var d=1
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	#enemy movement
 	ray_cast_2d.add_exception(player)
 	ray_cast_2d_2.add_exception(player)
 	animated_sprite_2d.play("enemyani")
@@ -34,16 +34,16 @@ func _process(delta: float) -> void:
 	position.x += delta * d * s
 	leftk = Vector2(-1900, -200)
 	rightk = Vector2(1900, -200)
-	if enemyhealth <= 0:
+	if enemyhealth <= 0: 	# enemy death
 		queue_free()
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void: 	# player damage by enemy
 	if body == player and dam:
 		player.health-=20
 		player.animated_sprite_2d.play("damage")
 		
 	
-func _on_area_2d_2_body_entered(body: Node2D) -> void:
+func _on_area_2d_2_body_entered(body: Node2D) -> void:	 # player knockback on damage (kinda works)
 	timer.start()
 	timer_2.start()
 	if player.velocity == Vector2(0,0): 
@@ -61,19 +61,15 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	dam = false
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:	 # player knockback on damage (kinda works)
 	timer.start()
 	timer_2.start()
 	if player.velocity == Vector2(0,0):
 		player.velocity = rightk
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = rightk
-
 		
-	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
-		player.velocity = rightk
-		
-	player.animated_sprite_2d.play("damage")
+	player.animated_sprite_2d.play("damage") # player damage animation (WIP)
 	player.move = false
 	leftcol.set_deferred("disabled", true)
 	rightcol.set_deferred("disabled", true)
@@ -86,5 +82,5 @@ func _on_timer_2_timeout() -> void:
 	rightcol.set_deferred("disabled", false)
 	dam = true
 
-func damageenemy():
+func damageenemy():		# enemy damage on attack (WIP)
 	enemyhealth-=100

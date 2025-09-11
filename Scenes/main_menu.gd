@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func _input(event):
-	if event.is_action_pressed("jump"):
+	if event.is_action_pressed("jump"): 	#comfirm button for menu
 		var focused
 		if play.has_focus():
 			focused = play
@@ -18,7 +18,7 @@ func _input(event):
 			focused = exit
 		if focused and focused is Button:
 			focused.emit_signal("pressed")
-	if event.is_action_pressed("down"):
+	if event.is_action_pressed("down"):			#navigating through the menu
 		exit.grab_focus()
 	elif event.is_action_pressed("up"):
 		play.grab_focus()

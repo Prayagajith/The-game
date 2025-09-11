@@ -5,12 +5,12 @@ extends Area2D
 @onready var player: CharacterBody2D = $"../Player"
 @onready var timer: Timer = $Timer
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:	#dont pickup health if health already full
 	if player.health == 100:
 		label.text = "health already full"
 		label.visible = true
 			
-	if body == player and player.health != 100:
+	if body == player and player.health != 100:		# heal if pickup
 		if player.health < 50:
 			player.health += 50
 			
@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 			player.health = 100
 		queue_free()
 		
-func _process(delta: float) -> void:
+func _process(delta: float) -> void: # health pickup animation
 	animated_sprite_2d.play("default")
 
 
