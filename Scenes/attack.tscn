@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6i371"]
-a = Vector2(-51, -5)
+a = Vector2(-19, -5)
 b = Vector2(30, -7)
 
 [node name="attack" type="Area2D"]
@@ -80,7 +80,7 @@ position = Vector2(285.5, 187)
 scale = Vector2(0.677215, 0.819277)
 sprite_frames = SubResource("SpriteFrames_v80ua")
 animation = &"left"
-frame = 6
+frame = 7
 frame_progress = 1.0
 
 [node name="anim2" type="AnimatedSprite2D" parent="."]
@@ -91,12 +91,13 @@ sprite_frames = SubResource("SpriteFrames_v80ua")
 animation = &"left"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(293, 188)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(179, 190)
 shape = SubResource("SegmentShape2D_6i371")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(199, 190)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(297, 191)
+scale = Vector2(1, 1)
 shape = SubResource("SegmentShape2D_6i371")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

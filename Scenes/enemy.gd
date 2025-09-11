@@ -53,11 +53,7 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:	 # player knockback on da
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = leftk
 		
-<<<<<<< HEAD
-=======
-	
-		
->>>>>>> 100ed07e357a733d662a2175a493e301731d2af3
+
 	player.animated_sprite_2d.play("damage")
 	player.move = false
 	leftcol.set_deferred("disabled", true)

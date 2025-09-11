@@ -1,5 +1,6 @@
 extends Node2D
 var killzoneact = false
+@onready var player: CharacterBody2D = $"../Player"
 
 
 
@@ -15,5 +16,6 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:				#redirect to main menu after falling off the map
-	killzoneact = true
+	player.respawn()
+	print("ksdjbksb")
 	

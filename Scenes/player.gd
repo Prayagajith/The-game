@@ -11,11 +11,9 @@ var health : int = 100
 var jump = true
 var move = true
 var dir = "right"
-<<<<<<< HEAD
+
 var attcol = false
-=======
 var last_checkpoint = Vector2()
->>>>>>> 100ed07e357a733d662a2175a493e301731d2af3
 @onready var attack: Area2D = $attack
 
 
@@ -67,20 +65,17 @@ func _physics_process(delta: float) -> void:
 			attack.animleft()
 		elif dir == "right":
 			attack.visiright(true)
-<<<<<<< HEAD
-			attack.animright()			
 
-=======
+			attack.animright()			
 			attack.animright()
 			
 			
->>>>>>> 100ed07e357a733d662a2175a493e301731d2af3
 	move_and_slide()
-	respawn()
+	if health<=0:
+		respawn()
 	
 	
 func respawn():
-	if health <= 0:
 		print("workink")
 		health = 100
 		global_position=last_checkpoint

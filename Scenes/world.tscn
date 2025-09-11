@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pqoj8y7e7c0g" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="1_go701"]
 [ext_resource type="Texture2D" uid="uid://b5vkbo3c2ual3" path="res://brackeys_platformer_assets/sprites/platforms.png" id="2_5a7ea"]
-[ext_resource type="Texture2D" uid="uid://bxwca42e4krmq" path="res://Scenes/waving-flags-pixel-art-set-260nw-2185922625-removebg-preview resize.png" id="3_5v1tr"]
+[ext_resource type="Texture2D" uid="uid://bxwca42e4krmq" path="res://waving-flags-pixel-art-set-260nw-2185922625-removebg-preview resize.png" id="3_5v1tr"]
 [ext_resource type="PackedScene" uid="uid://b5s68m8xdtyje" path="res://Scenes/player.tscn" id="3_8j60k"]
 [ext_resource type="Script" uid="uid://buhjxiolr51fa" path="res://Scenes/player.gd" id="4_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://bbortbx4ex700" path="res://Scenes/kill_zone.tscn" id="5_fo5ed"]
@@ -231,18 +231,6 @@ sources/8 = SubResource("TileSetAtlasSource_ikia7")
 
 [node name="World" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("3_8j60k")]
-visibility_layer = 2
-position = Vector2(23, 122)
-script = ExtResource("4_fo5ed")
-
-[node name="Checkpoint" parent="Player" instance=ExtResource("9_0fj1v")]
-position = Vector2(1084, -483)
-scale = Vector2(3, 3)
-
-[node name="Kill zone" parent="Player" instance=ExtResource("5_fo5ed")]
-position = Vector2(229, 434)
-
 [node name="tiles" type="TileMap" parent="."]
 light_mask = 2
 visibility_layer = 2
@@ -266,3 +254,15 @@ position = Vector2(1250, -27)
 
 [node name="health pickup" parent="." instance=ExtResource("7_o06y3")]
 position = Vector2(328, 133)
+
+[node name="Checkpoint" parent="." instance=ExtResource("9_0fj1v")]
+position = Vector2(1107, -361)
+scale = Vector2(3, 3)
+
+[node name="Kill zone" parent="." instance=ExtResource("5_fo5ed")]
+position = Vector2(252, 556)
+
+[node name="Player" parent="." instance=ExtResource("3_8j60k")]
+visibility_layer = 2
+position = Vector2(23, 122)
+script = ExtResource("4_fo5ed")
