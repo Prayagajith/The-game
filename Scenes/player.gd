@@ -1,4 +1,6 @@
 extends CharacterBody2D
+@onready var kill_zone: Area2D = $"Kill zone"
+
 
 @onready var label1: Label = $Label
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -9,7 +11,11 @@ var health : int = 100
 var jump = true
 var move = true
 var dir = "right"
+<<<<<<< HEAD
 var attcol = false
+=======
+var last_checkpoint = Vector2()
+>>>>>>> 100ed07e357a733d662a2175a493e301731d2af3
 @onready var attack: Area2D = $attack
 
 
@@ -26,8 +32,6 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("jump") and jump == true:
 		velocity.y = FALL_VELOCITY
 		jump = false
-		
-		
 	if is_on_floor():   	#jump switch
 		jump = true
 	
@@ -63,12 +67,20 @@ func _physics_process(delta: float) -> void:
 			attack.animleft()
 		elif dir == "right":
 			attack.visiright(true)
+<<<<<<< HEAD
 			attack.animright()			
 
+=======
+			attack.animright()
+			
+			
+>>>>>>> 100ed07e357a733d662a2175a493e301731d2af3
 	move_and_slide()
 	respawn()
 	
 	
-func respawn():		#death screen
+func respawn():
 	if health <= 0:
-		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+		print("workink")
+		health = 100
+		global_position=last_checkpoint

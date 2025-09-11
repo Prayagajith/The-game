@@ -20,8 +20,13 @@ func _process(delta: float) -> void:
 		collision_shape_2d.set_deferred("disabled",false)
 		collision_shape_2d_2.set_deferred("disabled",false)
 func _on_body_entered(body: Node2D) -> void: # damage enemy on attack
+<<<<<<< HEAD
 	if body == Area2D:
 		print("damage")
+=======
+	
+	print("damaged")
+>>>>>>> 100ed07e357a733d662a2175a493e301731d2af3
 	
 func animleft():					# attack visibility animation
 	anim_2.play("left")
