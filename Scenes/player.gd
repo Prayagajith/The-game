@@ -26,8 +26,6 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("jump") and jump == true:
 		velocity.y = FALL_VELOCITY
 		jump = false
-		
-		
 	if is_on_floor():   	#jump switch
 		jump = true
 	

@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void: # damage enemy on attack
-	enemy.damageenemy()
+	
 	print("damaged")
 	
 func animleft():					# attack visibility animation
