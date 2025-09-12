@@ -3,8 +3,14 @@ extends Area2D
 @onready var collision_shape_2d_2: CollisionShape2D = $CollisionShape2D2
 @onready var anim_1: AnimatedSprite2D = $anim1
 @onready var anim_2: AnimatedSprite2D = $anim2
+<<<<<<< HEAD
 @onready var enemy: Area2D = $"./enemy"
 signal enemydamage()
+=======
+@onready var enemy: Area2D = $enemy
+
+var x = 50
+>>>>>>> fc5654eb21585b6913d1d69cbe6affad17168ab0
 
 var attcol: = false
 
@@ -19,9 +25,22 @@ func _process(delta: float) -> void:
 		collision_shape_2d.set_deferred("disabled",false)
 		collision_shape_2d_2.set_deferred("disabled",false)
 func _on_body_entered(body: Node2D) -> void: # damage enemy on attack
+<<<<<<< HEAD
 	if body == $"..":
 		print("touched")
 		emit_signal("enemydamage")
+=======
+	
+	if body.is_in_group("Body_enemies"):
+		
+		body.take_damage(x)
+		print("damage")
+		
+		
+	
+	
+
+>>>>>>> fc5654eb21585b6913d1d69cbe6affad17168ab0
 	
 func animleft():					# attack visibility animation
 	anim_2.play("left")

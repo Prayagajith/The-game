@@ -1,4 +1,11 @@
 extends CharacterBody2D
+<<<<<<< HEAD
+=======
+#@onready var kill_zone: Area2D = $"Kill zone"
+@onready var enemy: Area2D = $"../enemy"
+
+
+>>>>>>> fc5654eb21585b6913d1d69cbe6affad17168ab0
 @onready var label1: Label = $Label
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var SPEED = 300.0

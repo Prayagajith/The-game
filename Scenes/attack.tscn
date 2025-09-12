@@ -71,7 +71,7 @@ animations = [{
 a = Vector2(-19, -5)
 b = Vector2(30, -7)
 
-[node name="attack" type="Area2D"]
+[node name="attack" type="Area2D" groups=["Body_enemies", "Player_body"]]
 script = ExtResource("1_ht1lw")
 
 [node name="anim1" type="AnimatedSprite2D" parent="."]
