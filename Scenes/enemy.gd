@@ -7,13 +7,13 @@ extends Area2D
 @onready var timer_2: Timer = $Timer2
 @onready var leftcol: CollisionShape2D = $Area2D2/leftcol
 @onready var rightcol: CollisionShape2D = $Area2D/rightcol
-<<<<<<< HEAD
 @onready var attack: Area2D = $"."
 
-=======
-@onready var attack: Area2D = $attack
-var enehealth = 100
->>>>>>> fc5654eb21585b6913d1d69cbe6affad17168ab0
+
+
+
+var enehealth := 100
+
 var leftk
 var rightk
 var dam = true
@@ -23,7 +23,7 @@ var d=1
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	attack.connect("enemydamage",Callable(self,"damageenemy"))
+	attack.connect("enemydamage",Callable(self,"_on_enemydamage"))
 
 func _process(delta: float) -> void:	#enemy movement
 	ray_cast_2d.add_exception(player)
@@ -85,15 +85,14 @@ func _on_timer_2_timeout() -> void:
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
 
-func damageenemy():		# enemy damage on attack (WIP)
+func _on_enemydamage():		# enemy damage on attack (WIP)
 	enemyhealth-=100
-
+	print("damage")
 
 func _on_attack_body_entered(body: Node2D) -> void:
 		enemyhealth-=100
 		print("tftyf")
-<<<<<<< HEAD
-=======
+
 
 func _on_body_exited(body: Node2D) -> void:
 	pass
@@ -102,4 +101,3 @@ func take_damage(x):
 	print ("damage dealt")
 	if enehealth <= 0:
 		queue_free()
->>>>>>> fc5654eb21585b6913d1d69cbe6affad17168ab0
