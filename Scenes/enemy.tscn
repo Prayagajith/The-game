@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://caxmiugaefbet"]
+[gd_scene load_steps=11 format=3 uid="uid://caxmiugaefbet"]
 
 [ext_resource type="Script" uid="uid://g3cl8wo7xyg3" path="res://Scenes/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://csb0h2ucflcqy" path="res://brackeys_platformer_assets/sprites/slime_green.png" id="2_afpow"]
-[ext_resource type="PackedScene" uid="uid://bbyhquso1mda5" path="res://Scenes/attack.tscn" id="3_afpow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1f0kj"]
 atlas = ExtResource("2_afpow")
@@ -89,8 +88,7 @@ shape = SubResource("SegmentShape2D_287tu")
 wait_time = 0.4
 
 [node name="Timer2" type="Timer" parent="."]
-
-[node name="attack" parent="." instance=ExtResource("3_afpow")]
+wait_time = 1.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
@@ -98,4 +96,3 @@ wait_time = 0.4
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
-[connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]

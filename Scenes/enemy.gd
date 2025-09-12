@@ -7,22 +7,18 @@ extends Area2D
 @onready var timer_2: Timer = $Timer2
 @onready var leftcol: CollisionShape2D = $Area2D2/leftcol
 @onready var rightcol: CollisionShape2D = $Area2D/rightcol
-@onready var attack: Area2D = $attack
+@onready var attack: Area2D = $"."
 
 var leftk
 var rightk
 var dam = true
-@export var enemyhealth = 100
+var enemyhealth := 100
 var s=100
 var d=1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	pass # Replace with function body.
+	attack.connect("enemydamage",Callable(self,"damageenemy"))
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	#enemy movement
 	ray_cast_2d.add_exception(player)
 	ray_cast_2d_2.add_exception(player)
@@ -40,9 +36,7 @@ func _process(delta: float) -> void:	#enemy movement
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void: 	# player damage by enemy
-	if body == player and dam:
-		player.health-=20
-		player.animated_sprite_2d.play("damage")
+	pass
 		
 	
 func _on_area_2d_2_body_entered(body: Node2D) -> void:	 # player knockback on damage (kinda works)
@@ -52,12 +46,13 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:	 # player knockback on da
 		player.velocity = leftk
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = leftk
-		
-
+	if body == player and dam:
+		player.health-=20
+		player.animated_sprite_2d.play("damage")
 	player.animated_sprite_2d.play("damage")
-	player.move = false
 	leftcol.set_deferred("disabled", true)
 	rightcol.set_deferred("disabled", true)
+	player.move = false
 	dam = false
 
 
@@ -68,11 +63,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:	 # player knockback on dama
 		player.velocity = rightk
 	elif player.velocity > Vector2(0,0) or player.velocity < Vector2(0,0):
 		player.velocity = rightk
-		
+	if body == player and dam:
+		player.health-=20
+		player.animated_sprite_2d.play("damage")
 	player.animated_sprite_2d.play("damage") # player damage animation (WIP)
-	player.move = false
 	leftcol.set_deferred("disabled", true)
 	rightcol.set_deferred("disabled", true)
+	player.move = false
 	dam = false
 
 func _on_timer_timeout() -> void:
@@ -87,9 +84,5 @@ func damageenemy():		# enemy damage on attack (WIP)
 
 
 func _on_attack_body_entered(body: Node2D) -> void:
-	if body == Area2D:
 		enemyhealth-=100
 		print("tftyf")
-
-func _on_body_exited(body: Node2D) -> void:
-	pass
