@@ -1,5 +1,6 @@
 extends CharacterBody2D
-@onready var kill_zone: Area2D = $"Kill zone"
+#@onready var kill_zone: Area2D = $"Kill zone"
+@onready var enemy: Area2D = $"../enemy"
 
 
 @onready var label1: Label = $Label

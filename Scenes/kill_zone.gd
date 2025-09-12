@@ -1,5 +1,5 @@
 extends Node2D
-var killzoneact = false
+
 @onready var player: CharacterBody2D = $"../Player"
 
 

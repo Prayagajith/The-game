@@ -51,7 +51,7 @@ b = Vector2(0, 33)
 a = Vector2(0, -6)
 b = Vector2(0, 24)
 
-[node name="enemy" type="Area2D"]
+[node name="enemy" type="Area2D" groups=["Body_enemies"]]
 script = ExtResource("1_1f0kj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

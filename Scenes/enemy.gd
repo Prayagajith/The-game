@@ -8,7 +8,7 @@ extends Area2D
 @onready var leftcol: CollisionShape2D = $Area2D2/leftcol
 @onready var rightcol: CollisionShape2D = $Area2D/rightcol
 @onready var attack: Area2D = $attack
-
+var enehealth = 100
 var leftk
 var rightk
 var dam = true
@@ -16,6 +16,7 @@ var dam = true
 var s=100
 var d=1
 # Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	
 	pass # Replace with function body.
@@ -93,3 +94,8 @@ func _on_attack_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	pass
+func take_damage(x):
+	enehealth -= x
+	print ("damage dealt")
+	if enehealth <= 0:
+		queue_free()

@@ -14,6 +14,11 @@ config/name="The game"
 run/main_scene="uid://dk0v2jtpcmg7e"
 config/features=PackedStringArray("4.4", "Mobile")
 
+[global_group]
+
+Player_body=""
+Body_enemies=""
+
 [input]
 
 left={

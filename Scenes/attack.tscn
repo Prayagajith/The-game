@@ -71,7 +71,7 @@ animations = [{
 a = Vector2(-19, -5)
 b = Vector2(30, -7)
 
-[node name="attack" type="Area2D"]
+[node name="attack" type="Area2D" groups=["Body_enemies", "Player_body"]]
 script = ExtResource("1_ht1lw")
 
 [node name="anim1" type="AnimatedSprite2D" parent="."]
@@ -97,7 +97,6 @@ shape = SubResource("SegmentShape2D_6i371")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(297, 191)
-scale = Vector2(1, 1)
 shape = SubResource("SegmentShape2D_6i371")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
