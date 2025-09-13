@@ -298,12 +298,11 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["Player_body"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(67, 39)
+position = Vector2(68, 40)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
 animation = &"damage"
 frame = 3
-frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(66, 48)

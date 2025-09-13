@@ -18,7 +18,7 @@ var attcol = false
 var last_checkpoint = Vector2()
 @onready var attack: Area2D = $attack
 
-
+var enehealth = 10000000
 
 func _physics_process(delta: float) -> void:
 
@@ -63,21 +63,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"): #attack input
 		attack.attacol(true)
 		if dir == "left":
+			print("left")
 			attack.visileft(true)            
 			attack.animleft()
 		elif dir == "right":
+			print("right")
 			attack.visiright(true)
-
-			attack.animright()			
 			attack.animright()
 			
 			
 	move_and_slide()
 	if health<=0:
+		health = 100
 		respawn()
 	
 	
 func respawn():
-		print("workink")
-		health = 100
 		global_position=last_checkpoint

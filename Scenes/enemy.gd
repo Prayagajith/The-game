@@ -10,9 +10,9 @@ extends Area2D
 @onready var attack: Area2D = $"."
 
 
+@export var attack_node: NodePath
 
-
-var enehealth := 100
+@export var enehealth := 100
 
 var leftk
 var rightk
@@ -23,8 +23,8 @@ var d=1
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	attack.connect("enemydamage",Callable(self,"_on_enemydamage"))
-
+	# Assuming you have a reference to the player attack instance
+	attack.connect("enemyd", Callable(self, "_on_body_attack_entered"))
 func _process(delta: float) -> void:	#enemy movement
 	ray_cast_2d.add_exception(player)
 	ray_cast_2d_2.add_exception(player)
@@ -40,10 +40,8 @@ func _process(delta: float) -> void:	#enemy movement
 	rightk = Vector2(1900, -200)
 	if enemyhealth <= 0: 	# enemy death
 		queue_free()
-
-func _on_body_entered(body: Node2D) -> void: 	# player damage by enemy
-	pass
-		
+	if enehealth <= 0:
+			queue_free()
 	
 func _on_area_2d_2_body_entered(body: Node2D) -> void:	 # player knockback on damage (kinda works)
 	timer.start()
@@ -85,7 +83,7 @@ func _on_timer_2_timeout() -> void:
 	leftcol.set_deferred("disabled", false)
 	rightcol.set_deferred("disabled", false)
 
-func _on_enemydamage():		# enemy damage on attack (WIP)
+func enemydamage():		# enemy damage on attack (WIP)
 	enemyhealth-=100
 	print("damage")
 
@@ -93,11 +91,8 @@ func _on_attack_body_entered(body: Node2D) -> void:
 		enemyhealth-=100
 		print("tftyf")
 
-
-func _on_body_exited(body: Node2D) -> void:
-	pass
-func take_damage(x):
-	enehealth -= x
-	print ("damage dealt")
-	if enehealth <= 0:
-		queue_free()
+func _on_body_attack_entered():
+		enehealth -= 100
+		print("Enemy took damage! HP:", enehealth)
+		if enehealth <= 0:
+			queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dk0v2jtpcmg7e"]
+[gd_scene load_steps=15 format=4 uid="uid://dk0v2jtpcmg7e"]
 
 [ext_resource type="Texture2D" uid="uid://pqoj8y7e7c0g" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="1_go701"]
 [ext_resource type="Texture2D" uid="uid://b5vkbo3c2ual3" path="res://brackeys_platformer_assets/sprites/platforms.png" id="2_5a7ea"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://caxmiugaefbet" path="res://Scenes/enemy.tscn" id="6_5ukr8"]
 [ext_resource type="PackedScene" uid="uid://dw27trvxpek75" path="res://Scenes/health_pickup.tscn" id="7_o06y3"]
 [ext_resource type="PackedScene" uid="uid://bfc6fj7jhhede" path="res://Scenes/checkpoint.tscn" id="9_0fj1v"]
+[ext_resource type="PackedScene" uid="uid://bbyhquso1mda5" path="res://Scenes/attack.tscn" id="10_0fj1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j60k"]
 texture = ExtResource("1_go701")
@@ -240,11 +241,15 @@ tile_set = SubResource("TileSet_5ukr8")
 
 [node name="enemy" parent="." instance=ExtResource("6_5ukr8")]
 visibility_layer = 2
-position = Vector2(114, 164)
+position = Vector2(215, 164)
 
 [node name="enemy2" parent="." instance=ExtResource("6_5ukr8")]
 visibility_layer = 2
-position = Vector2(1250, -27)
+position = Vector2(27, 161)
+
+[node name="enemy3" parent="." instance=ExtResource("6_5ukr8")]
+visibility_layer = 2
+position = Vector2(1324, -24)
 
 [node name="health pickup" parent="." instance=ExtResource("7_o06y3")]
 position = Vector2(328, 133)
@@ -260,3 +265,5 @@ scale = Vector2(3, 3)
 visibility_layer = 2
 position = Vector2(23, 122)
 script = ExtResource("4_fo5ed")
+
+[node name="attack" parent="." instance=ExtResource("10_0fj1v")]

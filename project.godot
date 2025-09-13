@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.4", "Mobile")
 
 Player_body=""
 Body_enemies=""
+enemy=""
 
 [input]
 
