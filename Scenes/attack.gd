@@ -5,7 +5,7 @@ extends Area2D
 @onready var anim_1: AnimatedSprite2D = $anim1
 @onready var anim_2: AnimatedSprite2D = $anim2
 
-
+@export var test: int = 100
 
 
 signal enemyd()
