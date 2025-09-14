@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var label: Label = $Label
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anime: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = $"../Player"
 @onready var timer: Timer = $Timer
 
@@ -19,7 +19,7 @@ func _on_body_entered(body: Node2D) -> void:	#dont pickup health if health alrea
 		queue_free()
 		
 func _process(delta: float) -> void: # health pickup animation
-	animated_sprite_2d.play("default")
+	anime.play("default")
 
 
 
