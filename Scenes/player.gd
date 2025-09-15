@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 #@onready var kill_zone: Area2D = $"Kill zone"
 @onready var enemy: Area2D = $"../enemy"
-@onready var timer: Timer = $Timer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var attacol: CollisionShape2D = $Area2D/attacol
 @onready var attack: Sprite2D = $Area2D/attack
