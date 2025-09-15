@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		
 	
-	if Input.is_action_pressed("jump") and is_on_floor(): # Handle jump
+	if Input.is_action_just_pressed("jump") and is_on_floor(): # Handle jump
 		velocity.y = JUMP_VELOCITY
 		Input.start_joy_vibration(0, 1, 0, 0.1)
 	elif Input.is_action_just_released("jump") and jump == true:
@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor(): #jump animation
 		anime.play("jump")
-	if Input.is_action_pressed("attack"): #attack input
+	if Input.is_action_just_pressed("attack"): #attack input
 		attanime.play("attack")
 		if dir == "left":
 			print("left")
