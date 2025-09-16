@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsuiyr5ruvvlp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7a7kp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_poon4"]
+
+[node name="Touch Controls" type="Node2D"]
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(7, 7)
+shape = SubResource("CircleShape2D_7a7kp")
+action = "Left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(32, -4)
+shape = SubResource("CircleShape2D_poon4")
+action = "Right"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+position = Vector2(25, 6)
+
+[node name="Attack" type="TouchScreenButton" parent="."]
+position = Vector2(19, 0)
