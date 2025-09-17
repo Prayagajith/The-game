@@ -230,6 +230,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player_body"]]
+position = Vector2(-3, 2)
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
