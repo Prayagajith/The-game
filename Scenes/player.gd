@@ -16,8 +16,6 @@ var move = true
 var dir = "right"
 var attcol = false
 var last_checkpoint = Vector2()
-
-
 func _ready() -> void:
 	attacol.disabled = true
 	attack.visible = false
