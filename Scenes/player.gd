@@ -1,13 +1,11 @@
 extends CharacterBody2D
 
-#@onready var kill_zone: Area2D = $"Kill zone"
-@onready var enemy: Area2D = $"../enemy"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var attacol: CollisionShape2D = $Area2D/attacol
 @onready var attack: Sprite2D = $Area2D/attack
 @onready var attanime: AnimationPlayer = $Area2D/attanime
-
 @onready var label1: Label = $Label
+@onready var anime: AnimationPlayer = $anime
 
 var SPEED = 300.0
 const JUMP_VELOCITY = -700.0
@@ -16,12 +14,9 @@ var health : int = 100
 var jump = true
 var move = true
 var dir = "right"
-@onready var sprite_2d_2: Sprite2D = $Sprite2D2
-
 var attcol = false
 var last_checkpoint = Vector2()
 
-@onready var anime: AnimationPlayer = $anime
 
 func _ready() -> void:
 	attacol.disabled = true

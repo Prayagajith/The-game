@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsuiyr5ruvvlp"]
+
+[sub_resource type="BitMap" id="BitMap_7a7kp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7a7kp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_poon4"]
+
+[node name="Touch Controls" type="Node2D"]
+metadata/_edit_vertical_guides_ = [27.0, -7.0, -4.0, 0.0]
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(6, 7)
+bitmask = SubResource("BitMap_7a7kp")
+shape = SubResource("CircleShape2D_7a7kp")
+action = "Left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(119, 8)
+shape = SubResource("CircleShape2D_poon4")
+action = "Right"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+position = Vector2(52, 7)
+
+[node name="Attack" type="TouchScreenButton" parent="."]
+position = Vector2(63, 24)
