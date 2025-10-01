@@ -16,7 +16,7 @@ shape = SubResource("CircleShape2D_7a7kp")
 action = "Left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
-position = Vector2(119, 8)
+position = Vector2(29, 7)
 shape = SubResource("CircleShape2D_poon4")
 action = "Right"
 visibility_mode = 1
