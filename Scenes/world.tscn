@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dk0v2jtpcmg7e"]
+[gd_scene load_steps=13 format=4 uid="uid://dk0v2jtpcmg7e"]
 
 [ext_resource type="Texture2D" uid="uid://pqoj8y7e7c0g" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="1_go701"]
 [ext_resource type="Texture2D" uid="uid://b5vkbo3c2ual3" path="res://brackeys_platformer_assets/sprites/platforms.png" id="2_5a7ea"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://caxmiugaefbet" path="res://Scenes/enemy.tscn" id="6_5ukr8"]
 [ext_resource type="PackedScene" uid="uid://dw27trvxpek75" path="res://Scenes/health_pickup.tscn" id="7_o06y3"]
 [ext_resource type="PackedScene" uid="uid://bfc6fj7jhhede" path="res://Scenes/checkpoint.tscn" id="9_0fj1v"]
-[ext_resource type="PackedScene" uid="uid://bsuiyr5ruvvlp" path="res://Scenes/touch_controls.tscn" id="9_5v1tr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j60k"]
 texture = ExtResource("1_go701")
@@ -256,9 +255,10 @@ position = Vector2(252, 556)
 position = Vector2(1130, -322)
 scale = Vector2(3, 3)
 
+[node name="Checkpoint2" parent="." instance=ExtResource("9_0fj1v")]
+position = Vector2(-598, -45)
+scale = Vector2(3, 3)
+
 [node name="Player" parent="." instance=ExtResource("3_8j60k")]
 visibility_layer = 2
 position = Vector2(23, 122)
-
-[node name="Touch Controls" parent="." instance=ExtResource("9_5v1tr")]
-position = Vector2(27, 293)

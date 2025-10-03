@@ -74,6 +74,7 @@ theme_override_font_sizes/font_size = 64
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.7
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

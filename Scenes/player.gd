@@ -84,3 +84,4 @@ func _physics_process(delta: float) -> void:
 	
 func respawn():
 		global_position=last_checkpoint
+	
